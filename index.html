@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduGuard - Risk Monitoring</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.js">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="hidden">
+    <h2>EduGuard</h2>
+    <button class="btn" onclick="logout()">Logout</button>
+  </nav>
+
+  <!-- HOMEPAGE -->
+  <div id="home" class="container">
+    <div class="card center">
+      <h1>EduGuard</h1>
+      <p><b>Early Risk Detection for Students</b></p>
+      <p>Detect struggling students weeks earlier – merge existing spreadsheets, apply clear rules, and alert mentors.</p>
+      <button class="btn" onclick="showRoleSelect()">Get Started</button>
+    </div>
+  </div>
+
+  <!-- ROLE SELECTION -->
+  <div id="role" class="container hidden">
+    <div class="card center">
+      <h2>Select Your Role</h2>
+      <button class="btn" onclick="showLogin('teacher')">I am Teacher / Counselor</button>
+      <button class="btn" onclick="showLogin('student')">I am Student</button>
+    </div>
+  </div>
+
+  <!-- LOGIN PAGE -->
+  <div id="login" class="container hidden">
+    <div class="card center">
+      <h2>Login</h2>
+      <input id="username" type="text" placeholder="Username" style="padding:10px;margin:10px;width:80%;"><br>
+      <input id="password" type="password" placeholder="Password" style="padding:10px;margin:10px;width:80%;"><br>
+      <button class="btn" onclick="doLogin()">Login</button>
+    </div>
+  </div>
+
+  <!-- TEACHER DASHBOARD -->
+  <div id="teacher" class="container hidden">
+    <div class="card">
+      <h2>Teacher Dashboard</h2>
+      <p>Overview of at-risk students and counseling reports.</p>
+    </div>
+    <div class="card">
+      <h3>Student Risk Levels</h3>
+      <table>
+        <tr><th>Name</th><th>Risk Level</th></tr>
+        <tr><td>Ali Zen</td><td style="color:#ef5350;">High</td></tr>
+        <tr><td>Afreen</td><td style="color:#ffca28;">Medium</td></tr>
+        <tr><td>Arsalan Raza</td><td style="color:#66bb6a;">Low</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Counseling Sessions</h3>
+      <table>
+        <tr><th>Student</th><th>Session Date</th><th>Remarks</th></tr>
+        <tr><td>Ali Zen</td><td>10-Sep</td><td>Needs extra classes</td></tr>
+        <tr><td>Afreen</td><td>12-Sep</td><td>Improving slowly</td></tr>
+      </table>
+    </div>
+    <div class="card chart-container">
+      <h3>Risk Distribution</h3>
+      <canvas id="riskChart"></canvas>
+    </div>
+  </div>
+
+  <!-- STUDENT DASHBOARD -->
+  <div id="student" class="container hidden">
+    <div class="card">
+      <h2>Student Dashboard</h2>
+      <p>Welcome, your progress and details are shown here.</p>
+    </div>
+    <div class="card">
+      <h3>Student List</h3>
+      <table>
+        <tr><th>Name</th><th>Class</th><th>Roll No</th></tr>
+        <tr><td>Ali Zen</td><td>B.Tech(CSE-AI)</td><td>21</td></tr>
+        <tr><td>Furkan Ali Sultan</td><td>B.Tech(CSE-AI)</td><td>22</td></tr>
+        <tr><td>Arsalan Raza</td><td>B.Tech(CSE-AI)</td><td>23</td></tr>
+        <tr><td>Md Faizan</td><td>B.Tech(CSE-AI)</td><td>25</td></tr>
+        <tr><td>Afreen</td><td>B.Tech(CSE-AI)</td><td>26</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Progress</h3>
+      <div class="progress-bar"><div class="progress" id="progress"></div></div>
+    </div>
+    <div class="card chart-container">
+      <h3>Performance Over Time</h3>
+      <canvas id="progressChart"></canvas>
+    </div>
+    <div class="card">
+      <h3>Chatbot (Optional)</h3>
+      <p>🤖 How can I help you today?</p>
+      <input type="text" id="chatInput" placeholder="Type here..." style="padding:10px;width:80%;margin-top:10px;">
+      <button class="btn" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Your JS -->
+  <script src="main.js"></script>
+</body>
+</html>
